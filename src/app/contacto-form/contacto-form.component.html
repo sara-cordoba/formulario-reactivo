@@ -1,0 +1,75 @@
+<div class="container">
+    <!-- El formulario está enlazado a un FormGroup mediante [formGroup] para que Angular lo gestione como un formulario reactivo -->
+    <form [formGroup]="formularioContacto" (ngSubmit)="onSubmit()">
+      
+      <!-- Campo Nombre -->
+      <div class="form-group">
+        <!-- Etiqueta del campo 'nombre' -->
+        <label for="nombre">Nombre:</label>
+        
+        <!-- Campo de entrada para el nombre, enlazado a 'nombre' en el FormGroup mediante formControlName -->
+        <input id="nombre" formControlName="nombre" />
+  
+        <!-- Mensaje de error para 'nombre' -->
+        <!-- *ngIf verifica si el campo es inválido (invalid) y ha sido tocado (touched) para mostrar el mensaje solo en esos casos -->
+        <div *ngIf="formularioContacto.get('nombre')?.invalid && formularioContacto.get('nombre')?.touched">
+          <!-- Mensaje específico para el error 'required' en caso de que el campo esté vacío -->
+          <small *ngIf="formularioContacto.get('nombre')?.errors?.['required']">
+            El nombre es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Correo Electrónico -->
+      <div class="form-group">
+        <label for="correo">Correo electrónico:</label>
+        
+        <!-- Campo de entrada para el correo, enlazado a 'correo' en el FormGroup -->
+        <!-- type="email" ayuda a sugerir el teclado de email en dispositivos móviles -->
+        <input id="correo" formControlName="correo" type="email" />
+  
+        <!-- Mensajes de error para 'correo' -->
+        <div *ngIf="formularioContacto.get('correo')?.invalid && formularioContacto.get('correo')?.touched">
+          <!-- Error para campo requerido -->
+          <small *ngIf="formularioContacto.get('correo')?.errors?.['required']">
+            El correo es obligatorio
+          </small>
+          <!-- Error para formato de correo inválido -->
+          <small *ngIf="formularioContacto.get('correo')?.errors?.['email']">
+            Introduce un correo válido
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Mensaje -->
+      <div class="form-group">
+        <label for="mensaje">Mensaje:</label>
+        
+        <!-- Área de texto para el mensaje, enlazada a 'mensaje' en el FormGroup -->
+        <textarea id="mensaje" formControlName="mensaje"></textarea>
+  
+        <!-- Mensajes de error para 'mensaje' -->
+        <div *ngIf="formularioContacto.get('mensaje')?.invalid && formularioContacto.get('mensaje')?.touched">
+          <!-- Error para campo requerido -->
+          <small *ngIf="formularioContacto.get('mensaje')?.errors?.['required']">
+            El mensaje es obligatorio
+          </small>
+          <!-- Error para longitud mínima de caracteres (10) -->
+          <small *ngIf="formularioContacto.get('mensaje')?.errors?.['minlength']">
+            El mensaje debe tener al menos 10 caracteres
+          </small>
+        </div>
+      </div>
+  
+      <!-- Botón de envío -->
+      <!-- [disabled]="formularioContacto.invalid" deshabilita el botón si el formulario no es válido (si hay errores) -->
+      <button type="submit" [disabled]="formularioContacto.invalid">Enviar</button>
+    </form>
+  
+    <!-- Mensaje de confirmación -->
+    <!-- Se muestra solo si mensajeEnviado es true -->
+    <div *ngIf="mensajeEnviado" class="mensaje-emergente">
+      ¡Formulario enviado exitosamente!
+    </div>
+  </div>
+  

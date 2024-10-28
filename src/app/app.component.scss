@@ -1,0 +1,47 @@
+@import './contacto-form/contacto-form.component.scss'; // Importa los estilos del formulario si es necesario
+
+
+// Estilos para centrar y ajustar el espacio entre el título y el formulario
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 90vh; // Ocupa toda la pantalla, pero centrado al comienzo
+  font-family: $primary-font;
+}
+
+// Ajustes en el título para reducir el margen inferior
+.title {
+  color: $primary-color;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px; // Reducimos el margen inferior para acercar el formulario al título
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    color: #000;
+    text-align: center;
+    padding: 20px 0; // Aumentamos el padding vertical para darle más altura
+    font-size: 1em; // Aumentamos ligeramente el tamaño de la fuente
+    min-height: 60px; // Establecemos una altura mínima para el footer
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; // Centra el texto vertical y horizontalmente
+  }
+  
+  
+
+// Aseguramos que el formulario tenga un ancho máximo mayor
+app-contacto-form {
+  width: 100%;
+  max-width: 700px; // Aumentamos el ancho máximo del formulario para que se vea más amplio
+  padding: 0 20px; // Añadimos padding lateral para que no quede pegado a los bordes en pantallas pequeñas
+}
