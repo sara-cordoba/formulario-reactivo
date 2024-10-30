@@ -1,0 +1,85 @@
+@import '../../styles/shared-styles';
+
+
+form {
+  border: 1px solid $primary-color-f3;
+
+
+  label {
+    color: $primary-color-f3;
+  }
+
+  input,
+  textarea {
+    border: 1px solid $primary-color-f3;
+
+    &:focus {
+      outline: none;
+      border-color: darken($primary-color-f3, 10%);
+      box-shadow: 0 0 5px rgba(80, 167, 140, 0.5);
+    }
+  }
+  small {
+    color: $error-color-f3;
+  }
+
+  button {
+    background-color: $primary-color-f3;
+
+    &:hover {
+      background-color: darken($primary-color-f3, 10%);
+    }
+  }
+}
+
+.mensaje-emergente {
+  background-color: $primary-color-f3;
+}
+
+
+//------------------------//
+//Estilos para Date y Gender
+//------------------------//
+
+$font-color: #333; // Color del texto
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  label {
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 5px;
+  }
+
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: $input-padding;
+    border: 1px solid $primary-color-f3;
+    border-radius: $border-radius;
+    font-size: 1em;
+    color: $font-color;
+    background-color: #fff;
+    appearance: none; // Quita la apariencia predeterminada en algunos navegadores
+
+    // Añadimos estilo de sombra para cuando esté en foco
+    &:focus {
+      outline: none;
+      border-color: darken($primary-color-f3, 10%);
+      box-shadow: 0 0 5px rgba(80, 167, 140, 0.5);
+    }
+  }
+
+  // Estilo específico para el selector (flecha) en navegadores
+  select {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2350a78c"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right $input-padding center;
+    background-size: 1em;
+    padding-right: 2em; // Espacio para la flecha
+  }
+}
+

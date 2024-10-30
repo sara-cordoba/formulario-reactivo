@@ -1,0 +1,91 @@
+<div class="container">
+    <form [formGroup]="formularioContacto3" (ngSubmit)="onSubmit()">
+        <div class="formGroup">
+            <label for="name">Nombre</label>
+            <input id="name" formControlName="name">
+            
+            <div *ngIf="formularioContacto3.get('name')?.invalid && formularioContacto3.get('name')?.touched">
+                <small *ngIf="formularioContacto3.get('name')?.errors?.['required']">
+                    El nombre es obligatorio
+                </small>
+
+                <small *ngIf="formularioContacto3.get('name')?.errors?.['pattern']">
+                    El nombre no es válido
+                </small>
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <label for="lastname">Apellidos</label>
+            <input id="lastname" formControlName="lastname">  
+            
+            <div *ngIf="formularioContacto3.get('lastname')?.invalid && formularioContacto3.get('lastname')?.touched">
+                <small *ngIf="formularioContacto3.get('lastname')?.errors?.['required']">
+                    Los apellidos son obligatorios
+                </small>
+
+                <small *ngIf="formularioContacto3.get('lastname')?.errors?.['pattern']">
+                    Los apellidos no son válidos
+                </small>
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <label for="date">Fecha de Nacimiento</label> 
+            <input id="date" type="date" formControlName="date">    
+
+            <small *ngIf="formularioContacto3.get('date')?.invalid && formularioContacto3.get('date')?.touched">
+                La fecha de nacimiento es obligatoria
+            </small>
+
+            <small *ngIf="formularioContacto3.get('date')?.errors?.['pattern']">
+                Ingresa una fecha válida
+            </small>
+        </div>
+
+        <div class="formGroup">
+            <label for="gender">Género</label> 
+            <select id="gender" formControlName="gender">
+                <option value="" disabled selected>Seleccione su género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="Felino">Felino</option>
+              </select>   
+
+              <small *ngIf="formularioContacto3.get('gender')?.invalid && formularioContacto3.get('gender')?.touched">
+                El género es obligatorio
+              </small>
+        </div>
+
+        <div class="formGroup">
+            <label for="tel">Teléfono</label>
+            <input id="tel" formControlName="tel">
+            
+            <div *ngIf="formularioContacto3.get('tel')?.invalid && formularioContacto3.get('tel')?.touched">
+                <small *ngIf="formularioContacto3.get('tel')?.errors?.['required']">
+                    El teléfono es obligatorio
+                </small>
+
+                <small *ngIf="formularioContacto3.get('tel')?.errors?.['pattern']">
+                    El teléfono introducido no es válido
+                </small>
+
+                <small *ngIf="formularioContacto3.get('tel')?.errors?.['minlength']">
+                    El teléfono debe contener al menos 9 carácteres
+                </small>
+
+                <small *ngIf="formularioContacto3.get('tel')?.errors?.['maxlength']">
+                    El teléfono no puede contener más de 12 carácteres
+                </small>
+
+            </div>     
+        </div>
+        
+
+        <button type="submit" [disabled]="formularioContacto3.invalid">Enviar</button>
+    </form>
+
+    <div *ngIf="mensajeEnviado" class="mensaje-emergente">
+        ¡Formulario enviado exitosamente!
+    </div>
+</div>

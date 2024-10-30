@@ -5,13 +5,17 @@ $title-color: #749c71;
 $primary-color: #50a78c;
 $secundary-color: #000000;
 $error-color: #aa392c;
-$input-padding: 16px; // Aumentamos el padding para hacer los campos más grandes
+$input-padding: 10px; // Aumentamos el padding para hacer los campos más grandes
 $border-radius: 6px; // Un borde más redondeado
 $primary-font: 'Roboto', sans-serif;
 
 // Estilos para Formulario 2
 $primary-color-f2: #d0add1;
 $error-color-f2: #4f0964;
+
+// Estilos para Formulario 3
+$primary-color-f3: #59b0b3;
+$error-color-f3: #0d5252;
 
 
 // Estilos generales para todos los formularios
@@ -128,7 +132,7 @@ form {
   
 
 // Aseguramos que el formulario tenga un ancho máximo mayor
-app-contacto-form, app-contacto-form2 {
+app-contacto-form, app-contacto-form2, app-contacto-form3 {
     width: 100%;
     max-width: 700px; // Aumentamos el ancho máximo del formulario para que se vea más amplio
     padding: 0 20px; // Añadimos padding lateral para que no quede pegado a los bordes en pantallas pequeñas
