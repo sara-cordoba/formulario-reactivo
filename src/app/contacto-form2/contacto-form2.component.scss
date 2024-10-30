@@ -1,0 +1,39 @@
+@import '../../styles/shared-styles';
+
+
+
+form {
+  border: 1px solid $primary-color-f2;
+
+
+  label {
+    color: $primary-color-f2;
+  }
+
+  input,
+  textarea {
+    border: 1px solid $primary-color-f2;
+
+    &:focus {
+      outline: none;
+      border-color: darken($primary-color-f2, 10%);
+      box-shadow: 0 0 5px rgba(80, 167, 140, 0.5);
+    }
+  }
+  small {
+    color: $error-color-f2;
+  }
+
+  button {
+    background-color: $primary-color-f2;
+
+    &:hover {
+      background-color: darken($primary-color-f2, 10%);
+    }
+  }
+}
+
+.mensaje-emergente {
+  background-color: $primary-color-f2;
+}
+

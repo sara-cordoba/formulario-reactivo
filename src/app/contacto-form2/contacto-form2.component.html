@@ -1,0 +1,64 @@
+<div class="container">
+    <form [formGroup]="formularioContacto2" (ngSubmit)="onSubmit()">
+        <div class="formGroup">
+            <label for="name">Nombre</label>
+            <input id="name" formControlName="name">
+
+            <div *ngIf="formularioContacto2.get('name')?.invalid && formularioContacto2.get('name')?.touched ">
+                <small *ngIf="formularioContacto2.get('name')?.errors?.['required']">
+                    El nombre es obligatorio
+                </small>
+
+                <small *ngIf="formularioContacto2.get('name')?.errors?.['pattern']">
+                    El nombre es inválido
+                </small>
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <label for="lastname">Apellidos</label>
+            <input id="lastname" formControlName="lastname">
+
+            <div *ngIf="formularioContacto2.get('lastname')?.invalid && formularioContacto2.get('lastname')?.touched">
+                <small *ngIf="formularioContacto2.get('lastname')?.errors?.['required']">
+                    Los apellidos son obligatorios
+                </small>
+
+                <small *ngIf="formularioContacto2.get('lastname')?.errors?.['pattern']">
+                    Los apellidos son inválidos
+                </small>
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <label for="tel">Télefono</label>
+            <input id="tel" formControlName="tel" type="tel">
+
+            <div *ngIf="formularioContacto2.get('tel')?.invalid && formularioContacto2.get('tel')?.touched">
+                <small *ngIf="formularioContacto2.get('tel')?.errors?.['required']">
+                    El teléfono es obligatorio
+                </small>
+
+                <small *ngIf="formularioContacto2.get('tel')?.errors?.['pattern']">
+                    Solo se permiten números
+                </small>
+
+                <small *ngIf="formularioContacto2.get('tel')?.errors?.['minlength']">
+                    El teléfono debe tener al menos 10 dígitos
+                </small>
+
+                <small *ngIf="formularioContacto2.get('tel')?.errors?.['maxlength']">
+                    El teléfono no debe exceder los 15 dígitos
+                </small>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="formularioContacto2.invalid">Enviar</button>
+    </form>
+
+    <div *ngIf="mensajeEnviado" class="mensaje-emergente">
+        ¡Formulario enviado exitosamente!
+      </div>
+
+
+</div>

@@ -11,9 +11,13 @@
   font-family: $primary-font;
 }
 
+.nav-link{
+  cursor: pointer;
+}
+
 // Ajustes en el título para reducir el margen inferior
 .title {
-  color: $primary-color;
+  color: $title-color;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
@@ -39,9 +43,4 @@
   
   
 
-// Aseguramos que el formulario tenga un ancho máximo mayor
-app-contacto-form {
-  width: 100%;
-  max-width: 700px; // Aumentamos el ancho máximo del formulario para que se vea más amplio
-  padding: 0 20px; // Añadimos padding lateral para que no quede pegado a los bordes en pantallas pequeñas
-}
+

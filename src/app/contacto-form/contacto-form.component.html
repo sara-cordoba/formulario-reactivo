@@ -17,6 +17,10 @@
           <small *ngIf="formularioContacto.get('nombre')?.errors?.['required']">
             El nombre es obligatorio
           </small>
+
+          <small *ngIf="formularioContacto.get('nombre')?.errors?.['pattern']">
+            El nombre no puede contener solo espacios en blanco
+          </small>
         </div>
       </div>
   

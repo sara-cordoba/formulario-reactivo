@@ -1,0 +1,135 @@
+// Estilos para titulo app
+$title-color: #749c71;
+
+// Estilos para Formulario 1
+$primary-color: #50a78c;
+$secundary-color: #000000;
+$error-color: #aa392c;
+$input-padding: 16px; // Aumentamos el padding para hacer los campos más grandes
+$border-radius: 6px; // Un borde más redondeado
+$primary-font: 'Roboto', sans-serif;
+
+// Estilos para Formulario 2
+$primary-color-f2: #d0add1;
+$error-color-f2: #4f0964;
+
+
+// Estilos generales para todos los formularios
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px; // Más padding en el contenedor para que esté más centrado
+    background-color: #f9f9f9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; // Más espacio entre los elementos
+    width: 100%;
+    max-width: 700px; // Aumentamos el ancho máximo del formulario
+    padding: 40px; // Aumentamos el padding interno para dar más espacio
+    border-radius: $border-radius;
+    background-color: #fff;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    label {
+      font-weight: bold;
+      font-size: 1.1em; // Tamaño de fuente más grande para el label
+      margin-bottom: 8px; // Un poco más de espacio entre el label y el input
+    }
+  
+    input,
+    textarea {
+      padding: $input-padding;
+      font-size: 1.1em; // Aumentamos el tamaño de la fuente en los inputs
+      border-radius: $border-radius;
+      width: 100%;
+      box-sizing: border-box;
+  
+      &:focus {
+        outline: none;
+        border-color: darken($primary-color, 10%);
+        box-shadow: 0 0 5px rgba(80, 167, 140, 0.5);
+      }
+    }
+  
+    textarea {
+      height: 150px; // Ajusta la altura del campo de mensaje según tus necesidades
+      resize: vertical; // Permite que el usuario ajuste la altura si desea
+    }
+  
+  
+    small {
+      font-size: 0.9em; // Un poco más grande para los mensajes de error
+    }
+  
+    button {
+      padding: 15px; // Botón más grande para hacer clic fácilmente
+      font-size: 1.2em; // Texto del botón más grande
+      color: #fff;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      width: 100%;
+  
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+  
+  .mensaje-emergente {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 20px 40px; // Aumentamos el padding para un mensaje más espacioso
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInOut 3s ease forwards;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+    10%, 90% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -40%);
+    }
+  }
+  
+  
+
+// Aseguramos que el formulario tenga un ancho máximo mayor
+app-contacto-form, app-contacto-form2 {
+    width: 100%;
+    max-width: 700px; // Aumentamos el ancho máximo del formulario para que se vea más amplio
+    padding: 0 20px; // Añadimos padding lateral para que no quede pegado a los bordes en pantallas pequeñas
+  }

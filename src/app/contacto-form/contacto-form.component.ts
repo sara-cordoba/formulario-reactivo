@@ -8,10 +8,9 @@ import {
   Validators, // Validadores para aplicar reglas de validación en los campos
 } from '@angular/forms';
 
-// Decorador @Component para definir el componente y sus configuraciones
 @Component({
-  selector: 'app-contacto-form', // Selector para usar este componente en otros lugares
-  standalone: true, // Indicamos que el componente es standalone (independiente de módulos)
+  selector: 'app-contacto-form',
+  standalone: true,
   imports: [ReactiveFormsModule, NgIf], // Módulos que necesitamos importar para el funcionamiento
   templateUrl: './contacto-form.component.html', // Archivo HTML del componente
   styleUrl: './contacto-form.component.scss', // Archivo de estilos del componente
@@ -23,12 +22,11 @@ export class ContactoFormComponent {
   // Variable de estado para controlar si el mensaje de confirmación debe mostrarse
   mensajeEnviado = false;
 
-  // Constructor del componente
   constructor(private formBuilder: FormBuilder) {
     // Inicializamos "formularioContacto" usando FormBuilder para crear un grupo de controles
     this.formularioContacto = this.formBuilder.group({
       // Cada control tiene un nombre (nombre, correo, mensaje), un valor inicial y validadores
-      nombre: ['', Validators.required], // Campo requerido (no puede estar vacío)
+      nombre: ['', [Validators.required, Validators.pattern(/^(?!\s*$).+/)]], // No permite solo espacios en blanco]], // Campo requerido (no puede estar vacío)
       correo: ['', [Validators.required, Validators.email]], // Campo requerido con formato de email
       mensaje: ['', [Validators.required, Validators.minLength(10)]], // Campo requerido con mínimo de 10 caracteres
     });
@@ -50,6 +48,7 @@ export class ContactoFormComponent {
       // Usamos setTimeout para ocultar el mensaje después de 3 segundos (3000 milisegundos)
       setTimeout(() => {
         this.mensajeEnviado = false; // Ocultamos el mensaje de confirmación
+        this.formularioContacto.reset();
       }, 3000);
     } else {
       // Si el formulario no es válido, mostramos un mensaje en consola
@@ -57,6 +56,7 @@ export class ContactoFormComponent {
 
       // Llamamos a markAllAsTouched para marcar todos los campos como "tocados" y mostrar los mensajes de error
       this.formularioContacto.markAllAsTouched();
+      this.formularioContacto.updateValueAndValidity(); // Asegura que los estados de los campos se actualicen
     }
   }
 }
