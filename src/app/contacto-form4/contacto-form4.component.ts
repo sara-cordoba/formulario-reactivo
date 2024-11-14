@@ -20,7 +20,10 @@ export class ContactoForm4Component {
 
   constructor(private formBuilder: FormBuilder) {
     this.formularioContacto = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.email]],
+      username: [
+        '',
+        [Validators.required, Validators.email, Validators.pattern(/^\S*$/)],
+      ],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }

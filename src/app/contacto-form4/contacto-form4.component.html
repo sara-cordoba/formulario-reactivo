@@ -12,8 +12,11 @@
             <small *ngIf="formularioContacto.get('username')?.errors?.['required']">
                 El correo es obligatorio
             </small>
-            <small *ngIf="formularioContacto.get('username')?.errors?.['required']">
+            <small *ngIf="formularioContacto.get('username')?.errors?.['email']">
                 Introduce un correo válido
+            </small>
+            <small *ngIf="formularioContacto.get('username')?.errors?.['pattern']">
+                El correo no debe contener espacios
             </small>
         </div>
     </div>
@@ -26,7 +29,7 @@
             <small *ngIf="formularioContacto.get('password')?.errors?.['required']">
                 La contraseña es obligatoria
             </small>
-            <small *ngIf="formularioContacto.get('password')?.errors?.['required']">
+            <small *ngIf="formularioContacto.get('password')?.errors?.['minlength']">
                 La contraseña debe tener al menos 6 caracteres
             </small>
         </div>
