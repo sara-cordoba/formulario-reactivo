@@ -1,0 +1,42 @@
+<div class="container">
+
+    
+
+<form [formGroup]="formularioContacto" (ngSubmit)="onSubmit()">
+    <h1 class="title">Login</h1>
+    <div class="formGroup">
+        <label for="username">Correo Electrónico</label>
+        <input id="username" type="email" formControlName="username">
+
+        <div *ngIf="formularioContacto.get('username')?.invalid && formularioContacto.get('username')?.touched">
+            <small *ngIf="formularioContacto.get('username')?.errors?.['required']">
+                El correo es obligatorio
+            </small>
+            <small *ngIf="formularioContacto.get('username')?.errors?.['required']">
+                Introduce un correo válido
+            </small>
+        </div>
+    </div>
+
+    <div class="formGroup">
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" formControlName="password">
+
+        <div *ngIf="formularioContacto.get('password')?.invalid && formularioContacto.get('password')?.touched">
+            <small *ngIf="formularioContacto.get('password')?.errors?.['required']">
+                La contraseña es obligatoria
+            </small>
+            <small *ngIf="formularioContacto.get('password')?.errors?.['required']">
+                La contraseña debe tener al menos 6 caracteres
+            </small>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="formularioContacto.invalid">Iniciar Sesión</button>
+
+</form>
+<div *ngIf="mensajeEnviado" class="mensaje-emergente">
+    ¡Inicio de sesión exitoso!
+  </div>
+
+</div>

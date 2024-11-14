@@ -1,0 +1,81 @@
+@import '../../styles/shared-styles';
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: $primary-color-f4;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 450px; 
+  margin-top: -70px;
+  padding: 30px;
+  background-color: #f9f9f9; // Fondo claro para contraste
+  border-radius: 12px; // Bordes redondeados más pronunciados
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  label {
+    color: $primary-color-f4;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 12px;
+    border: 1px solid $primary-color-f4;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: darken($primary-color-f4, 10%);
+      box-shadow: 0 0 8px rgba(80, 167, 140, 0.3); // Color de sombra adaptado al primario
+    }
+  }
+
+  small {
+    color: $error-color-f4;
+    font-size: 0.85rem;
+  }
+
+  button {
+    padding: 12px;
+    background-color: $primary-color-f4;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color-f4, 10%);
+    }
+
+    &:disabled {
+      background-color: lighten($primary-color-f4, 30%);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.mensaje-emergente {
+  background-color: $primary-color-f4;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
