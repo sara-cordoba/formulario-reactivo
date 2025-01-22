@@ -1,0 +1,103 @@
+@import '../../styles/shared-styles';
+
+.title,.formGroup{
+    color: $primary-color-f5;
+}
+
+.toggleBtn,.submitBtn{
+    background-color: $primary-color-f5;
+    margin-top: 10px;
+}
+
+.toggleBtn:hover{
+    background-color: rgb(116, 12, 12)!important;
+}
+
+.submitBtn:hover{
+    background-color: rgb(116, 12, 12)!important;
+}
+
+input[type="mail"],
+input[type="password"],
+input[type="text"] {
+  border: 2px solid $primary-color-f5; // Color del borde principal
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: lighten($primary-color-f5, 30%); // Placeholder en un tono más claro
+    transition: color 0.3s ease;
+  }
+
+  // Hover (sin cambiar el color del borde)
+  &:hover {
+    background-color: #f9f9f9!important; // Fondo ligeramente más claro
+    border-color: $primary-color-f5!important; // Mantener el borde original
+  }
+
+  // Focus (solo resaltar el borde sin verde)
+  &:focus {
+    border-color: darken($primary-color-f5, 10%)!important; // Resaltar borde más oscuro
+    box-shadow: 0 0 5px lighten($primary-color-f5, 20%)!important; // Sombra sutil
+    background-color: #fff!important; // Fondo blanco al hacer foco
+  }
+
+  // Input deshabilitado
+  &:disabled {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+}
+
+
+
+.checkBox {
+    display: flex;
+    align-items: center;
+    gap: 10px; // Espaciado entre el texto y el checkbox
+    font-size: 1rem;
+    cursor: pointer;
+  
+    input[type='checkbox'] {
+      appearance: none; // Eliminamos el estilo predeterminado del navegador
+      width: 20px;
+      height: 20px;
+      border: 2px solid $primary-color-f5;
+      border-radius: 4px; // Bordes redondeados
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  
+      &:checked {
+        background-color: $primary-color-f5;
+        border-color: $primary-color-f5;
+        position: relative;
+  
+        &::after {
+          content: '✔'; // Icono check
+          font-size: 16px;
+          color: white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+  
+      &:hover {
+        border-color: lighten($primary-color-f5, 10%);
+      }
+  
+      &:focus {
+        box-shadow: 0 0 4px $primary-color-f5;
+      }
+    }
+  }
+  
+
+.btnCheck{
+    position: relative;
+}
